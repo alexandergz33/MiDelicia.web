@@ -26,6 +26,7 @@ if(isset($_SESSION['user_id'])){
    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<script src="js/chatbot.js"></script>
 <?php include 'components/user_header.php'; ?>
 
 <div class="heading">
@@ -47,10 +48,11 @@ if(isset($_SESSION['user_id'])){
 
 /* Estilos para la imagen */
 .image {
+    border: 6px solid #00ffff;
+    border-radius: 15px;
     max-width: 400px;
     margin-right: 20px;
-    border: 2px solid #fff;
-    border-radius: 10px;
+ 
 }
 
 /* Estilos para el contenedor del formulario */
@@ -59,8 +61,10 @@ if(isset($_SESSION['user_id'])){
     max-width: 600px;
     background-color: #fff;
     padding: 30px;
-    border-radius: 20px;
+ 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 6px solid #00ffff;
+    border-radius: 20px;
 }
 
 /* Estilos para el formulario */
@@ -72,7 +76,7 @@ form {
 /* Estilos para las etiquetas */
 label {
     font-weight: bold;
-    color: #444;
+    color: #f6f6f6;
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -85,6 +89,7 @@ input[type="time"],
 select,
 
 textarea {
+    
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
@@ -92,7 +97,7 @@ textarea {
     border-radius: 15px;
     font-size: 18px;
     background-color: #f6f6f6;
-    color: #333;
+    color: black;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 input[type="number" i] {

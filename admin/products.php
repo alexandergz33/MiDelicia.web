@@ -93,7 +93,7 @@ if(isset($_GET['delete'])){
       <select name="category" class="box" required>
          <option value="" disabled selected>selecciona una categoría --</option>
          <option value="Plato principal">Plato principal</option>
-         <option value="Comida rápida">Comida rápida</option>
+         <option value="Comida rápida">Comida rápida</option>  
          <option value="Bebidas">Bebidas</option>
          <option value="Postres">Postres</option>
       </select>

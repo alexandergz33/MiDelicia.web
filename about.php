@@ -30,7 +30,7 @@ if(isset($_SESSION['user_id'])){
 
 </head>
 <body>
-   
+<script src="js/chatbot.js"></script>
 <!-- header section starts  -->
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->
@@ -54,16 +54,14 @@ if(isset($_SESSION['user_id'])){
       <div class="content">
          <h3>¿Por qué elegirnos?</h3>
          <p>"En 'Mi Delicia', te ofrecemos una experiencia culinaria excepcional. Nuestros platos están preparados con ingredientes frescos y de alta calidad, y nuestro equipo de chefs se esfuerza por sorprenderte con sabores auténticos. Te garantizamos un ambiente acogedor y un servicio excepcional en cada visita. Elije 'Mi Delicia' para disfrutar de lo mejor en gastronomía."</p>
-         <a href="menu.php" class="btn">Nuestro menú</a>
+         <a href="comentarios.php" class="btn">Ver Comentarios</a>
       </div>
 
    </div>
 
 </section>
 
-<!-- about section ends -->
-
-<!-- steps section starts  -->
+ 
 
 <section class="steps">
 
@@ -93,105 +91,8 @@ if(isset($_SESSION['user_id'])){
 
 </section>
 
-<!-- steps section ends -->
-
-<!-- reviews section starts  -->
-
-<section class="reviews">
-
-   <h1 class="title">opiniones del cliente</h1>
-
-   <div class="swiper reviews-slider">
-
-      <div class="swiper-wrapper">
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-1.png" alt="">
-            <p>"Mi Delicia, es increíble. La comida es deliciosa, el servicio es excelente y el ambiente es acogedor. Mi lugar favorito para cenar."</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>john deo</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-2.png" alt="">
-            <p>"Siempre que visito 'Mi Delicia', sé que voy a disfrutar de una comida excepcional. Los sabores son auténticos y deliciosos, y el personal es amable y atento."</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3> Isabella Rodríguez.</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-3.png" alt="">
-            <p>"El restaurante 'Mi Delicia' es un verdadero tesoro culinario. Cada plato es una obra de arte y el ambiente es relajante. No puedo recomendarlo lo suficiente."</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>Alejandro Pérez</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-4.png" alt="">
-            <p>"Los sabores en 'Mi Delicia' son simplemente inigualables. La frescura de los ingredientes se nota en cada bocado. Definitivamente, es el lugar al que siempre vuelvo."</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>Sofia García</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-5.png" alt="">
-            <p>"'Mi Delicia' es el restaurante que supera mis expectativas en cada visita. La comida es deliciosa, el servicio es atento y  encantador. ¡No puedo tener suficiente de este lugar!"</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>Carlos Sánchez</h3>
-         </div>
-
-         <div class="swiper-slide slide">
-            <img src="images/pic-6.png" alt="">
-            <p>"Nunca dejo de impresionarme con la calidad de la comida en 'Mi Delicia'. Cada plato es una deliciosa sorpresa y el personal es siempre servicial. Mi lugar preferido para cenar con amigos."</p>
-            <div class="stars">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star-half-alt"></i>
-            </div>
-            <h3>Laura Morales</h3>
-         </div>
-
-      </div>
-
-      <div class="swiper-pagination"></div>
-
-   </div>
-
-</section>
-
-<!-- reviews section ends -->
+ 
+ 
 <section class="category">
 
    <h1 class="title">Redes Sociales</h1>
@@ -250,30 +151,8 @@ if(isset($_SESSION['user_id'])){
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 
-<script>
 
-var swiper = new Swiper(".reviews-slider", {
-   loop:true,
-   grabCursor: true,
-   spaceBetween: 20,
-   pagination: {
-      el: ".swiper-pagination",
-      clickable:true,
-   },
-   breakpoints: {
-      0: {
-      slidesPerView: 1,
-      },
-      700: {
-      slidesPerView: 2,
-      },
-      1024: {
-      slidesPerView: 3,
-      },
-   },
-});
 
-</script>
 
 </body>
 </html>

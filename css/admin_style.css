@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
+
+  
 :root{
    --main-color:var(--orange); 
    --red:#e74c3c;
@@ -13,8 +15,8 @@
 }
 
 *{
-   font-family: 'Montserrat', sans-serif;
-   margin:0; padding:0;
+   
+  
    box-sizing: border-box;
    text-decoration: none;
    outline: none; border:none;
@@ -39,13 +41,13 @@
 }
 
 html{
-   font-size: 62.5%;
+   font-size: 60.5%;
    overflow-x: hidden;
 }
 
 body{
-   background-color: var(--light-bg);
-   /* padding-bottom: 7rem; */
+  background: linear-gradient(45deg, #FF6347, #1E90FF);
+ 
 }
 
 section{
@@ -55,11 +57,11 @@ section{
 }
 
 .btn,
-.delete-btn,
 .option-btn{
    display: block;
    margin-top: 1rem;
-   border-radius: .5rem;
+   border: 6px solid #00ffff;
+   border-radius: 10px;
    cursor: pointer;
    width: 100%;
    font-size: 1.8rem;
@@ -70,19 +72,36 @@ section{
 }
 
 .btn{
-   background-color: var(--main-color);
+   background-color: #3498db;
+}
+.delete-btn {
+    display: block;
+    margin-top: 1rem;
+    color:white;
+    border: 6px solid #00ffff;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.8rem;
+    background-color: #b13737;
+    padding: 1.2rem 3rem;
+    text-transform: capitalize;
+    text-align: center;
+  
 }
 
-.delete-btn{
-   background-color: var(--red);
+.delete-btn:hover {
+  background: linear-gradient(45deg, #75381b, #2c81c7); /* Cambia el gradiente al pasar el ratón */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
 }
+ 
 
 .option-btn{
    background-color: var(--orange);
 }
 
 .btn:hover,
-.delete-btn:hover,
+ 
 .option-btn:hover{
    background-color: var(--black);
 }
@@ -153,7 +172,7 @@ section{
 }
 
 .form-container form {
-  background-color: #f9f9f9;
+  border: 6px solid #00ffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 2rem;
@@ -161,21 +180,28 @@ section{
   max-width: 50rem;
   color: #333;
   transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  overflow: hidden;
 }
 
 .form-container form:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  background-color: #fcfcfc;
+  background-color: #000000;
 }
 
 .form-container form h3 {
   font-size: 2.5rem;
-  color: #333;
+  color: #fcfcfc;
   text-transform: uppercase;
   margin-bottom: 1rem;
   transition: color 0.3s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra de texto para resaltar */
 }
+
+.form-container form h3:hover {
+  color: #00ffff; /* Cambia el color al pasar el ratón */
+}
+
 
 .form-container form p {
   margin: 1rem 0;
@@ -193,10 +219,10 @@ section{
   width: 100%;
   background-color: #ffffff;
   padding: 1.5rem;
-  font-size: 1.6rem;
-  color: #333;
+  font-size: 20px;
+  color: #34a6db;
   margin: 1rem 0;
-  border: 2px solid #ccc;
+  border: 6px solid #11a3a3;
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -227,15 +253,6 @@ section{
   background-color: #0056b3;
 }
 
-.header{
-   position: sticky;
-   top:0; left:0; right:0;
-   background-color: var(--white);
-   box-shadow: var(--box-shadow);
-   z-index: 1000;
-   border-bottom: var(--border);
-}
-
 .header .flex{
    display: flex;
    align-items: center;
@@ -245,7 +262,7 @@ section{
 
 .header .flex .logo{
    font-size: 2.5rem;
-   color:var(--black);
+   color:#00ffff;
 }
 
 .header .flex .logo span{
@@ -255,7 +272,7 @@ section{
 .header .flex .navbar a{
    margin:0 1rem;
    font-size: 2rem;
-   color:var(--light-color);
+   color:#00ffff;
 }
 
 .header .flex .navbar a:hover{
@@ -274,17 +291,20 @@ section{
 }
 
 .header .flex .profile{
-   position: absolute;
-   top:125%; right:2rem;
-   background-color: var(--white);
-   box-shadow: var(--box-shadow);
-   border:var(--border);
-   border-radius: .5rem;
-   padding:2rem;
-   padding-top: 1rem;
-   width: 30rem;
-   display: none;
-   animation: fadeIn .2s linear;
+  position: absolute;
+  top: 125%;
+  right: 2rem;
+  background-color: #ced1d4;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  width: 30rem;
+  height: 25rem;
+  display: none;
+  animation: fadeIn 0.2s linear;
+    z-index: 1000;
 }
 
 @keyframes fadeIn {
@@ -320,9 +340,9 @@ section{
  /* Estilos generales de las cajas */
  .dashboard .box-container .box {
    text-align: center;
-   background-color: var(--light-bg);
-   border: 1px solid var(--border-color);
-   border-radius: 1rem;
+   
+   border: 6px solid #11a3a3;
+   border-radius: 10px;
    padding: 2rem;
    transition: transform 0.3s, box-shadow 0.3s;
    cursor: pointer;
@@ -349,13 +369,13 @@ section{
  
  /* Contenido de la caja */
  .dashboard .box-container .box p {
-   background-color: var(--white);
+   background-color: #333;
    border-radius: 1rem;
    font-size: 1.6rem;
    padding: 1.5rem;
    border: 1px solid var(--border-color);
    margin: 1.5rem 0;
-   color: var(--text-color);
+   color: #ffffff;
  }
  
  /* Botón en la caja */
@@ -368,7 +388,7 @@ section{
    padding: 1rem 2rem;
    cursor: pointer;
    transition: background-color 0.3s;
-   margin-top: 1.5rem;
+  
  }
  
  .dashboard .box-container .box button:hover {
@@ -377,15 +397,24 @@ section{
  
 /* Estilos del formulario en la sección de agregar productos */
 .add-products form {
-   margin: 0 auto;
-   max-width: 40rem;
-   background-color: var(--light-bg);
-   border-radius: 1rem;
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-   border: 1px solid var(--border-color);
-   padding: 2rem;
-   text-align: center;
- }
+  margin: 0 auto;
+  max-width: 40rem;
+  background: linear-gradient(45deg, #3498db, #2c3e50);
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border: 2px solid #3498db;
+  padding: 2rem;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.add-products form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+
  
  /* Estilos del título del formulario */
  .add-products form h3 {
@@ -398,7 +427,7 @@ section{
  /* Estilos de los campos del formulario */
  .add-products form .box {
    background-color: var(--white);
-   border: 1px solid var(--border-color);
+   border: 6px solid #00ffff;
    width: 100%;
    padding: 1.8rem;
    font-size: 1.6rem;
@@ -406,7 +435,12 @@ section{
    border-radius: 1rem;
    margin: 1.5rem 0;
    transition: border-color 0.3s, transform 0.3s;
- }
+}
+
+.add-products form .box:focus-within {
+   border-color: #34db6c; /* Cambio de color del borde al enfocar cualquier elemento dentro de la caja */
+}
+
  
  /* Efecto al enfocar los campos del formulario */
  .add-products form .box:focus {
@@ -424,7 +458,7 @@ section{
    padding: 1.5rem 3rem;
    cursor: pointer;
    transition: background-color 0.3s;
-   margin-top: 2rem;
+ 
  }
  
  /* Efecto al pasar el mouse sobre el botón de enviar */
@@ -444,35 +478,79 @@ section{
  
  /* Estilos generales de las cajas de productos */
  .show-products .box-container .box {
-   background-color: var(--white);
-   border-radius: 1rem;
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-   padding: 2rem;
-   transition: transform 0.3s, box-shadow 0.3s;
-   position: relative;
- }
- 
- /* Efecto al pasar el mouse sobre las cajas */
- .show-products .box-container .box:hover {
-   transform: translateY(-5px);
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
- }
+  background: linear-gradient(45deg, #586776, #9c9fa4);
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden; /* Añadido para mejorar el efecto de sombra */
+}
+
+/* Efecto al pasar el mouse sobre las cajas */
+.show-products .box-container .box:hover {
+  transform: translateY(-8px) scale(1.02); /* Elevación más pronunciada y ligera expansión */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+}
+
+/* Añadir transición al overflow para un efecto suave */
+.show-products .box-container .box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 4px solid transparent;
+  border-image: linear-gradient(to right, #586776, #9c9fa4) 1; /* Gradiente de colores para el borde */
+  border-image-slice: 1;
+  border-radius: 1rem;
+  transition: border-color 0.3s;
+}
+
+.show-products .box-container .box:hover::before {
+  border-color: #3498db; /* Cambio de color del borde al pasar el ratón por encima */
+}
+
  
  /* Estilos de la imagen del producto */
  .show-products .box-container .box img {
-   width: 100%;
-   height: 20rem;
-   object-fit: cover;
-   border-radius: 1rem;
-   margin-bottom: 1rem;
+  height: 25rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
  }
  
  /* Estilos del nombre del producto */
  .show-products .box-container .box .name {
-   font-size: 2.5rem;
-   color: var(--text-color);
-   margin: 1rem 0;
- }
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de borde inferior al pasar el mouse sobre el nombre */
+.show-products .box-container .box .name::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color:  var(--main-color); /* Color del borde */
+  transform: scaleX(0); /* Inicialmente sin ancho */
+  transform-origin: left; /* Desde la izquierda hacia la derecha */
+  transition: transform 0.3s;
+}
+
+.show-products .box-container .box .name:hover::before {
+  transform: scaleX(1); /* Ancho completo al pasar el ratón por encima */
+}
+
  
  /* Estilos del contenedor flexible para categoría y precio */
  .show-products .box-container .box .flex {
@@ -483,16 +561,50 @@ section{
  
  /* Estilos de la categoría del producto */
  .show-products .box-container .box .flex .category {
-   font-size: 2rem;
-   color: var(--main-color);
+  font-size: 1.8rem;
+  color: #becbe9;
+  transition: color 0.3s, text-decoration 0.3s, border-color 0.3s;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 1rem;
  }
- 
+ .show-products .box-container .box:hover .flex .category {
+ color: #2c3a4a;
+ opacity: 1;
+ transform: translateY(-3px);
+ border-color: #3498db; /* Cambio de color del borde al pasar el ratón */
+ background-color: #38c8ec;
+ }
+
  /* Estilos del precio del producto */
  .show-products .box-container .box .flex .price {
    font-size: 2.5rem;
-   color: var(--main-color);
+   color: #38c8ec;
    margin: 1rem 0;
- }
+   position: relative;
+   overflow: hidden;
+}
+
+/* Efecto de borde al pasar el mouse sobre el precio */
+.show-products .box-container .box .flex .price::before {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 2px;
+   background-color: #38c8ec;
+   transform: scaleX(0); /* Inicialmente sin ancho */
+   transform-origin: right; /* Desde la derecha hacia la izquierda */
+   transition: transform 0.3s;
+}
+
+.show-products .box-container .box .flex .price:hover::before {
+   transform: scaleX(1); /* Ancho completo al pasar el ratón por encima */
+}
+
  
  /* Estilos del valor en el precio del producto */
  .show-products .box-container .box .flex .price span {
@@ -561,47 +673,50 @@ section{
 
 /* Contenedor de cajas en la sección de órdenes realizadas */
 .placed-orders .box-container {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
    gap: 1.5rem;
-   justify-content: center;
    align-items: flex-start;
+   justify-content: center;
  }
  
  /* Estilos generales de las cajas de órdenes */
  .placed-orders .box-container .box {
-   background-color: var(--white);
-   border-radius: 0.5rem;
-   box-shadow: var(--box-shadow);
-   border: var(--border);
-   padding: 2rem;
-   transition: transform 0.3s, box-shadow 0.3s;
+  padding: 2rem;
+  border: 6px solid #3498db; /* Borde sólido añadido */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; /* Añadida transición al borde */
+  text-align: left;
  }
- 
- /* Efecto al pasar el mouse sobre las cajas */
  .placed-orders .box-container .box:hover {
-   transform: translateY(-5px);
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
- }
+  transform: scale(1.02); /* Aumento de escala al pasar el ratón */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
+  border-color: #2c3a4a; /* Cambio de color del borde al pasar el ratón */
+}
+
  
  /* Estilos del contenido de las cajas de órdenes */
  .placed-orders .box-container .box p {
-   padding: 0.5rem 0;
-   line-height: 1.5;
-   font-size: 1.8rem;
-   color: var(--text-color);
+  line-height: 1.5;
+  margin: 1rem 0;
+  font-size: 2rem;
+  color: #eee7e7; 
  }
  
  /* Resalte de color en el contenido */
  .placed-orders .box-container .box p span {
-   color: var(--main-color);
+  color: rgb(131, 186, 223);
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s; /* Añadida transición al color del texto y a la transformación */
+  display: inline-block; 
  }
  
  /* Estilos del desplegable */
  .placed-orders .box-container .box .drop-down {
    width: 100%;
    margin: 1rem 0;
-   background-color: var(--light-bg);
+   background: linear-gradient(45deg, #D98880, #8B4513);
    padding: 1rem 1.4rem;
    font-size: 2rem;
    color: var(--text-color);
@@ -621,8 +736,8 @@ section{
 
 /* Estilos generales de las cajas de mensajes */
 .messages .box-container .box {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
+ 
+  border: 6px solid #00ffff;
   border-radius: 10px;
   padding: 2rem;
   text-align: left;
@@ -737,6 +852,7 @@ body {
    background-color: #f5f5f5;
    margin: 0;
    padding: 0;
+    
  }
  
  .container {
@@ -755,12 +871,41 @@ body {
  
  /* Títulos */
  .heading {
-   font-size: 2.5rem;
-   margin: 2rem 0;
-   color: #333;
+  text-align: center;
+   margin-bottom: 2.5rem;
+   font-size: 4rem;
+   color: #2c3e50;
    text-transform: uppercase;
+   position: relative;
+   overflow: hidden; 
+ 
+ }
+ .heading::before,
+ .heading::after {
+   content: '';
+   position: absolute;
+   height: 100%;
+   width: 0;
+   bottom: 0;
+   transition: width 0.3s ease-in-out;
+   border-bottom: 8px solid rgb(52, 219, 122); /* Color del subrayado */
  }
  
+ .heading::before {
+   left: 50%;
+   transform: translateX(-50%);
+ }
+ 
+ .heading::after {
+   right: 50%;
+   transform: translateX(50%);
+ }
+ 
+ .heading:hover::before,
+ .heading:hover::after {
+   width: 30%; /* Ancho del subrayado al pasar el ratón */
+ }
+
  /* Caja de administrador */
  .box-container {
   display: grid;
@@ -769,8 +914,8 @@ body {
 }
 
 .box {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  border: 6px solid #3498db;
+  
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -782,7 +927,7 @@ body {
 .box:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #fff; /* Cambia el fondo al pasar el mouse */
+  
 }
 
 /* Agrega un sombreado interno para resaltar el contenido */
@@ -799,39 +944,33 @@ body {
 }
 
  /* Botones */
- .option-btn {
-   display: inline-block;
-   padding: 10px 20px;
-   background-color: #007bff;
-   color: #fff;
-   text-decoration: none;
-   border-radius: 8px;
-   transition: background-color 0.3s;
- 
- }
- 
- .option-btn:hover {
-   background-color: #0056b3;
- }
- 
- .delete-btn {
-   display: inline-block;
-   padding: 10px 20px;
-   background-color: #ff0000;
-   color: #fff;
-   text-decoration: none;
-   border-radius: 10px;
-   transition: background-color 0.3s;
+ .option-boton {
+  width: 100%;
+   padding: 1rem 3rem;
+   text-align: center;
+   border: none;
+   border-radius: 8px; /* Borde redondeado */
+   font-size: 2rem;
+   color: #000;
+   cursor: pointer;
+   text-transform: capitalize;
+   background: linear-gradient(45deg, #3498db, #1f618d); /* Mix de colores en un degradado */
+   margin-top: 10px;
+   transition: background 0.3s, color 0.3s, transform 0.3s ease-in-out;
+}
+
+.option-boton:hover {
+  background: linear-gradient(45deg, #1f618d, #3498db); /* Cambia el mix de colores al pasar el ratón */
+  color: #fff;
+  transform: scale(1.05);
+}
+
   
- }
  
- .delete-btn:hover {
-   background-color: #ff3333;
- }
- 
+
  /* Mensaje de advertencia */
  .empty {
-   font-size: 1.5rem;
+   font-size: 1.5rem; 
    text-align: center;
    color: #555;
    margin: 2rem;
@@ -842,8 +981,272 @@ body {
    color: #007bff;
    text-decoration: none;
  }
- 
+
  a:hover {
    text-decoration: underline;
  }
+ .logout-boton {
+  position: absolute;
+  bottom: 20px; /* Ajusta según sea necesario para la posición vertical desde la parte inferior */
+  left: 70px; /* Ajusta según sea necesario para la posición horizontal desde la izquierda */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: #050505;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-boton:hover {
+  background-color: #c9302c;
+}
+/* Estilos para la sección de mostrar promociones */
+.show-promotions-container {
+  margin-top: 20px;
+}
+
+.promotions-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.promotions-box {
+  width: 300px;
+  margin: 10px;
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+.promotions-box:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.promotions-box img {
+  height: 25rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+.flex {
+  display: flex;
+  
+   align-items: center;
+   margin-bottom: 10px
+}
+
+.price,
+.discount,
+.final-price {
+  font-weight: bold;
  
+  font-size: 15px;
+ 
+}
+
+.description {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.flex-btn {
+  margin-top: 10px;
+  text-align: center;
+}
+
+ 
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fc0202; /* Color del texto */
+  background-color: #333232; /* Color de fondo */
+  padding: 8px 12px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  width: fit-content; /* Ajusta el ancho al contenido */
+  display: inline-block; /* Hace que el ancho se ajuste al contenido */
+}
+
+.title:hover {
+  background-color: #3498db; /* Cambio de color al pasar el ratón */
+  color: #fff; /* Cambio de color del texto al pasar el ratón */
+  transform: translateY(-3px); /* Efecto de elevación al pasar el ratón */
+}
+
+
+.add-promotions-container {
+  margin: 0 auto;
+    max-width: 40rem;
+    background: linear-gradient(45deg, #3498db, #2c3e50);
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 2px solid #3498db;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.add-promotions-container:hover {
+  transform: scale(1.02);
+}
+
+.add-promotions-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-promotions-form h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #3498db;
+}
+
+.input-box {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 4px solid #851515;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.input-box:focus {
+  border-color: #3498db;
+}
+
+textarea {
+  resize: vertical;
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  border-color: #3498db;
+}
+
+label {
+  margin-bottom: 10px;
+  
+  font-size: 15px;
+  color: #fcfcfc;
+}
+
+.submit-btn {
+  background-color: #3498db;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+/* ... (estilos anteriores) */
+
+/* Estilos para los campos de fecha */
+.add-promotions-form input[type="date"] {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.add-promotions-form input[type="date"]:focus {
+  border-color: #3498db;
+}
+
+/* Estilos para los campos de precio y descuento */
+.add-promotions-form input[type="number"] {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.add-promotions-form input[type="number"]:focus {
+  border-color: #3498db;
+}
+
+ 
+/* Estilos para el formulario de actualización */
+.update-promotion-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: linear-gradient(45deg, #3498db, #2c3e50);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.update-promotion-container h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #3498db;
+}
+
+.input-box,
+textarea,
+input[type="date"],
+input[type="number"],
+input[type="file"] {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-box:focus,
+textarea:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus {
+  border-color: #3498db;
+}
+
+.submit-btn,
+.volver {
+  background-color: #323233;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.submit-btn:hover,
+.volver:hover {
+  background-color: #444749;
+}

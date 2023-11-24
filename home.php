@@ -1,8 +1,15 @@
 <?php
-
+header('X-Frame-Options: DENY');
 include 'components/connect.php';
 
 session_start();
+
+// Configura la cookie de sesión con HttpOnly y SameSite=Lax
+if (isset($_COOKIE[session_name()])) {
+    setcookie(session_name(), $_COOKIE[session_name()], 0, '/', '', true, true); // Agrega el último true para HttpOnly
+    session_regenerate_id(true);
+    setcookie(session_name(), session_id(), 0, '/', '', true, true); // Agrega SameSite=Lax
+}
 
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
@@ -13,14 +20,13 @@ if(isset($_SESSION['user_id'])){
 include 'components/add_cart.php';
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>index</title>
+   <title>MiDelicia</title>
 
    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
@@ -32,7 +38,8 @@ include 'components/add_cart.php';
 
 </head>
 <body>
-
+<script src="js/chatbot.js"></script>
+ 
 <?php include 'components/user_header.php'; ?>
 
 
@@ -116,7 +123,7 @@ include 'components/add_cart.php';
 
 
 
-
+   
 <section class="products">
 
    <h1 class="title">últimos platos</h1>
@@ -154,9 +161,22 @@ include 'components/add_cart.php';
    </div>
 
    <div class="more-btn">
-      <a href="menu.php" class="btn">Ver todos</a>
-   </div>
-
+    <a href="recetas.php" class="btn <?php echo empty($user_id) ? 'show-message' : ''; ?>">Ver Recetas</a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var verRecetasBtn = document.querySelector('.btn.show-message');
+    
+    if (verRecetasBtn) {
+        verRecetasBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Evita que el enlace realice la acción predeterminada (navegar a la página de recetas)
+            
+            // Muestra el mensaje
+            alert('Por favor, inicia sesión primero.');
+        });
+    }
+});
+</script>
 </section>
 
 
@@ -179,7 +199,7 @@ include 'components/add_cart.php';
 <?php include 'components/footer.php'; ?>
 
 
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="js/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>

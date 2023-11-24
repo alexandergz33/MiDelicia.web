@@ -25,14 +25,33 @@ if(isset($_POST['delete_all'])){
    $message[] = '¡Eliminado todo del carrito!';
 }
 
+ 
 if(isset($_POST['update_qty'])){
-   $cart_id = $_POST['cart_id'];
-   $qty = $_POST['qty'];
-   $qty = filter_var($qty, FILTER_SANITIZE_STRING);
-   $update_qty = $conn->prepare("UPDATE `cart` SET quantity = ? WHERE id = ?");
-   $update_qty->execute([$qty, $cart_id]);
-   $message[] = 'cantidad del carrito actualizada';
+    // Obtener los datos del formulario de actualización
+    $cart_id = $_POST['cart_id'];
+    $qty = $_POST['qty'];
+
+    // Sanitizar la cantidad (asegurarse de que sea un valor seguro)
+    $qty = filter_var($qty, FILTER_SANITIZE_NUMBER_INT);
+
+    // Validar la cantidad (asegurarse de que sea un número positivo)
+    if (!is_numeric($qty) || $qty <= 0) {
+        $message[] = 'La cantidad debe ser un número positivo.';
+    } else {
+        // Actualizar la cantidad en la base de datos
+        $update_qty = $conn->prepare("UPDATE `cart` SET quantity = ? WHERE id = ?");
+        $update_qty->execute([$qty, $cart_id]);
+
+        // Verificar si se realizó la actualización correctamente
+        $rows_affected = $update_qty->rowCount();
+        if ($rows_affected > 0) {
+            $message[] = 'Cantidad del carrito actualizada correctamente.';
+        } else {
+            $message[] = 'No se pudo actualizar la cantidad del carrito.';
+        }
+    }
 }
+ 
 
 $grand_total = 0;
 
@@ -54,7 +73,7 @@ $grand_total = 0;
 
 </head>
 <body>
-   
+<script src="js/chatbot.js"></script>
 <!-- header section starts  -->
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->

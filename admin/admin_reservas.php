@@ -44,17 +44,28 @@ if (isset($_GET['delete'])) {
       .reservas {
          max-width: 800px;
          padding: 20px;
-         background-color: #fff;
+          
          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
          border-radius: 5px;
       }
 
-      .heading {
-         font-size: 24px;
-         text-align: center;
-         margin-bottom: 20px;
-         color: #007BFF;
-      }
+     /* Estilo para la clase .heading */
+.heading {
+   font-size: 20px; /* Aumenté el tamaño de la fuente para mayor impacto */
+   text-align: center;
+   margin-bottom: 20px;
+   color: #f0f0f0;
+   font-weight: bold; /* Añadí negrita para un aspecto más fuerte */
+   text-transform: uppercase; /* Convierte el texto a mayúsculas */
+   letter-spacing: 1px; /* Añade un pequeño espacio entre las letras */
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sutil sombra para resaltar el texto */
+   transition: color 0.3s ease; /* Animación suave del color al pasar el ratón */
+}
+
+/* Efecto al pasar el ratón */
+.heading:hover {
+   color: #0056b3; /* Cambia el color al pasar el ratón para un efecto visual */
+}
 
       .box-container {
          display: flex;
@@ -63,26 +74,37 @@ if (isset($_GET['delete'])) {
       }
 
       .box {
-         border: 1px solid #ddd;
+         border: 6px solid #00ffff;
+          border-radius: 10px;
          padding: 35px;
          border-radius: 5px;
          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
          position: relative;
       }
 
-      .box p {
-         display: flex;
-         margin: 0;
-         font-size: 20px;
-         color: black;
-      }
+     /* Estilo para párrafos dentro de la clase box */
+.box p {
+   display: flex;
+   align-items: center; /* Centra verticalmente el contenido */
+   margin: 0;
+   font-size: 20px; /* Tamaño de fuente aumentado */
+   color: #f0f0f0; /* Color de texto oscuro */
+   border-bottom: 2px solid transparent; /* Línea inferior transparente para la animación */
+   transition: border-bottom 0.3s ease; /* Animación suave de la línea inferior */
+}
+
+/* Pseudo-clase para resaltar el párrafo al pasar el ratón */
+.box p:hover {
+   
+   border-bottom: 6px solid #3498db; /* Línea inferior con color al pasar el ratón */
+}
 
       .box a {
          display: inline-block;
          padding: 10px 20px;
          margin-top: 10px;
-         border: none;
-         border-radius: 5px;
+         border: 6px solid #00ffff;
+         border-radius: 10px;
          text-decoration: none;
          font-weight: bold;
          transition: background-color 0.3s ease;
@@ -112,7 +134,7 @@ if (isset($_GET['delete'])) {
 }
 
 .update-btn:hover {
-    background-color: #0056b3;
+    background-color: #00ffff;
     transform: scale(1.05);
 }
 

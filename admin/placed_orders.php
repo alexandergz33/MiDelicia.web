@@ -93,7 +93,10 @@ if(isset($_GET['delete'])){
    ?>
 
    </div>
-
+   <div class="flex-btn">
+            <a type="submit" value="Gr" class="btn" href="informe_ventas.php">Ver en gráfico</a>
+           
+         </div>
 </section>
 
 <!-- placed orders section ends -->

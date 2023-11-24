@@ -30,7 +30,7 @@ include 'components/add_cart.php';
 
 </head>
 <body>
-   
+<script src="js/chatbot.js"></script>
 <?php include 'components/user_header.php'; ?>
 
 <section class="quick-view">

@@ -7,15 +7,16 @@ session_start();
 if(isset($_POST['submit'])){
 
    $name = $_POST['name'];
-   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+
    $pass = sha1($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+   $pass = htmlspecialchars($pass, ENT_QUOTES, 'UTF-8');
 
    $select_admin = $conn->prepare("SELECT * FROM `admin` WHERE name = ? AND password = ?");
    $select_admin->execute([$name, $pass]);
-   
    if($select_admin->rowCount() > 0){
-      $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
+ $fetch_admin_id = $select_admin->fetch(PDO::FETCH_ASSOC);
+ 
       $_SESSION['admin_id'] = $fetch_admin_id['id'];
       header('location:dashboard.php');
    }else{

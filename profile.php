@@ -29,7 +29,7 @@ if(isset($_SESSION['user_id'])){
 
 </head>
 <body>
-   
+<script src="js/chatbot.js"></script>
 <!-- header section starts  -->
 <?php include 'components/user_header.php'; ?>
 <!-- header section ends -->

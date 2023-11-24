@@ -21,6 +21,7 @@ if(isset($message)){
          <a href="orders.php"><i class="fas fa-shopping-cart"></i> Ordenes</a>
          <a href="contact.php"><i class="fas fa-envelope"></i> Contáctanos</a>
          <a href="reservas.php"><i class="fas fa-clock"></i> Reservas</a>
+         <a href="promociones.php"><i class="fas fa-gift"></i> Promoción</a>
       </nav>
       <div class="icons">
          <?php

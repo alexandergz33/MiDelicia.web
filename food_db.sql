@@ -129,7 +129,23 @@ CREATE TABLE `products` (
 
 -- --------------------------------------------------------
 
---
+-- tabla promociones--
+CREATE TABLE promotions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    product_image_path VARCHAR(255), -- Ruta a la imagen del producto (puedes almacenar la ruta o la imagen en base64)
+    start_date DATE, -- Fecha de inicio de la promoción
+    end_date DATE, -- Fecha de fin de la promoción
+    original_price DECIMAL(10, 2) NOT NULL, -- Precio original del producto
+    discount DECIMAL(5, 2) NOT NULL, -- Porcentaje de descuento
+    final_price DECIMAL(10, 2) NOT NULL -- Precio final después del descuento
+);
+
+
+
+
+
 -- Table structure for table `users`
 --
 
@@ -142,7 +158,7 @@ CREATE TABLE `users` (
   `address` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
+-----------------------------------------------------
 -- Indexes for dumped tables
 --
 

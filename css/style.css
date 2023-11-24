@@ -2,6 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
 
 :root{
+  
    --yellow:#fed330;
    --red:#e74c3c;
    --white:#fff;
@@ -9,10 +10,16 @@
    --light-color:#777;
    --border:.2rem solid var(--black);
 }
+body {
+   background: linear-gradient(45deg, #FF6347, #1E90FF);
+   color: #fff;
+}
+
+
 
 *{
    
-   font-family: 'Rubik', sans-serif;
+    
    margin:0; padding:0;
    box-sizing: border-box;
    outline: none; border: none;
@@ -51,16 +58,42 @@ section{
    padding:2rem;
 }
 
-.title{
+.title {
    text-align: center;
    margin-bottom: 2.5rem;
    font-size: 4rem;
-   color:var(--black);
+   color: #2c3e50;
    text-transform: uppercase;
-   text-decoration: underline;
-   text-underline-offset: 1rem;
-}
-
+   position: relative;
+   overflow: hidden; /* Añadido para ocultar el subrayado por defecto */
+ }
+ 
+ .title::before,
+ .title::after {
+   content: '';
+   position: absolute;
+   height: 100%;
+   width: 0;
+   bottom: 0;
+   transition: width 0.3s ease-in-out;
+   border-bottom: 8px solid rgb(52, 219, 122); /* Color del subrayado */
+ }
+ 
+ .title::before {
+   left: 50%;
+   transform: translateX(-50%);
+ }
+ 
+ .title::after {
+   right: 50%;
+   transform: translateX(50%);
+ }
+ 
+ .title:hover::before,
+ .title:hover::after {
+   width: 30%; /* Ancho del subrayado al pasar el ratón */
+ }
+ 
 .heading{
    display: flex;
    align-items: center;
@@ -113,10 +146,10 @@ section{
 .btn {
    background: linear-gradient(135deg, #ffcc00, #ff6600);
    color: #fff;
-   border: none;
+   border: 6px solid #00ffff;
    padding: 15px 30px;
    font-size: 1.8rem;
-   border-radius: 5px;
+   border-radius: 75px;
    cursor: pointer;
    transition: background 0.5s, color 0.5s, transform 0.3s, letter-spacing 0.3s, box-shadow 0.3s;
    text-transform: uppercase;
@@ -178,12 +211,13 @@ section{
    align-items: center;
    gap:1rem;
    justify-content: space-between;
-   background-color: var(--yellow);
+   background-color: #222;
+    
 }
 
 .message span{
    font-size: 2rem;
-   color:var(--black);
+   color:#ffffff;
 }
 
 .message i{
@@ -266,27 +300,49 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    display: none;
 }
 
-.header .flex .profile{
+/* Estilos para la sección de perfil */
+.header .flex .profile {
    background-color: var(--white);
-   border:var(--border);
-   padding:1.5rem;
+   border:  6px solid #00ffff;
+   border-radius: 15px;
+   padding: 1.5rem;
    text-align: center;
    position: absolute;
-   top:125%; right:2rem;
+   top: 120%;
+   right: 2rem;
    width: 30rem;
-   display: none;
-   animation: fadeIn .2s linear;
+   opacity: 0;
+   transform: translateY(1rem);
+   transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   z-index: 10;
+   pointer-events: none;
 }
 
-.header .flex .profile.active{
-   display: inline-block;
+/* Estilos para la sección de perfil cuando está activa */
+.header .flex .profile.active {
+   opacity: 1;
+   transform: translateY(0);
+   pointer-events: auto;
 }
 
+/* Animación de entrada para la sección de perfil */
 @keyframes fadeIn {
-   0%{
+   0% {
+      opacity: 0;
       transform: translateY(1rem);
    }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
+
+/* Estilo de sombra al hacer hover en la sección de perfil */
+.header .flex .profile:hover {
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Cabecera */
 .header .flex .profile .name {
@@ -395,16 +451,29 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
  }
  
  .category .box-container .box {
-   background: linear-gradient(to bottom, #f06, #c00);
-   border-radius: 15px;
-   padding: 20px;
-   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+   background: linear-gradient(135deg, #3498db, #9b59b6);
+   border-radius: 20px;
+   padding: 25px;
+   transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
    transform: scale(1);
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
    color: #fff;
    font-weight: bold;
+   position: relative;
+   overflow: hidden;
+   border: 6px solid #00ffff;
  }
- 
+ .category .box-container .box:before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+   pointer-events: none;
+   z-index: 1;
+ }
  .category .box-container .box img {
    width: 100%;
    max-height: 200px;
@@ -416,11 +485,14 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    font-size: 1.8rem;
    margin-top: 1rem;
    text-transform: capitalize;
+   border-radius: 20px;
+   border: 6px solid #00ffff;
  }
  
  .category .box-container .box:hover {
-   background: linear-gradient(to bottom, #ff6, #c60);
-   transform: scale(1.05);
+   background: linear-gradient(to bottom, hsl(88, 100%, 60%), rgb(0, 173, 204));
+   transform: scale(1.1);
+   transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
    cursor: pointer;
  }
  
@@ -437,25 +509,28 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    justify-content: center;
    align-items: flex-start;
    gap: 1.5rem;
+   border-radius: 16px;
 }
 
 .products .box-container .box {
-   border: none; /* Quita el borde */
+   border: none;
    padding: 1.5rem;
    position: relative;
    overflow: hidden;
-   background: #fff; /* Cambia el color de fondo a tu elección */
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Agrega una sombra más prominente */
-   border-radius: 10px; /* Agrega bordes redondeados */
-   transition: transform 0.3s, box-shadow 0.3s;
+   background: linear-gradient(45deg, #586776, #9c9fa4); /* Combinación de colores bonita y seria */
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+   border: 5px solid;
+ border-image: linear-gradient(45deg, #3498db, #2ecc71) 1;
+ border-image-slice: 1;
+    border-radius: 16px;
+   transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Efecto de transición suave */
 }
-
 .products .box-container .box:hover {
-   transform: translateY(-6px); /* Eleva la tarjeta */
-   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4); /* Sombra más destacada */
+   transform: translateY(-20px); /* Eleva la tarjeta */
+   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1);
    transition: transform 0.3s, box-shadow 0.3s;
+   background: linear-gradient(45deg, #9c9fa4, #586776);
 }
-
 
 .products .box-container .box img {
    height: 25rem;
@@ -468,25 +543,31 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 .products .box-container .box .fa-shopping-cart {
    position: absolute;
    top: 1rem;
-   right: 1rem; /* Cambia la posición a la esquina superior derecha */
+   right: 10rem; /* Posición en la esquina superior derecha */
    height: 4.5rem;
    width: 4.5rem;
    line-height: 4.3rem;
-   border: none; /* Quita el borde */
-   background-color: transparent; /* Fondo transparente */
+   border: none;
+   background-color: rgb(180, 173, 173);
    cursor: pointer;
    font-size: 2rem;
-   color: var(--black);
+   color: #ffcc00; /* Color inicial - Cambia a tu preferencia */
    transition: transform 0.3s, color 0.3s;
    text-align: center;
+   z-index: 1000;
 }
 
-.products .box-container .box .fa-eye:hover,
-.products .box-container .box .fa-shopping-cart:hover {
-   transform: scale(1.1);
-   background-color: #000; /* Cambia el color de fondo al pasar el ratón por encima */
-   color: #fff; /* Cambia el color al pasar el ratón por encima */
+.products .box-container .box:hover .fa-eye {
+   color: #7066ff; /* Color al pasar el ratón - Cambia a tu preferencia */
+   transform: scale(1.2);
 }
+
+.products .box-container .box:hover .fa-shopping-cart {
+   color: #7066ff; /* Color al pasar el ratón - Cambia a tu preferencia */
+   transform: scale(1.2);
+}
+
+
 
 .products .box-container .box .fa-eye {
    left: -10rem;
@@ -505,14 +586,22 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 }
 
 .products .box-container .box .cat {
-   font-size: 1.8rem;
-   color: #777; /* Cambia el color de texto a tu elección */
-   transition: color 0.3s;
+  font-size: 1.8rem;
+  color: #becbe9;
+  transition: color 0.3s, text-decoration 0.3s, border-color 0.3s; /* Añadida transición para el color, subrayado y color del borde */
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  border: 2px solid transparent; /* Borde transparente para inicializar */
+  border-radius: 5px; /* Borde redondeado */
+  padding: 1rem; /* Añadido relleno para el contenido dentro del borde */
 }
 
-.products .box-container .box .cat:hover {
-   color: #ff9900; /* Cambia el color al pasar el ratón por encima */
-   text-decoration: underline;
+.products .box-container .box:hover .cat {
+  color: #2c3a4a;
+  opacity: 1;
+  transform: translateY(-3px);
+  border-color: #3498db; /* Cambio de color del borde al pasar el ratón */
+  background-color: #26839b; /* Color de fondo dentro del borde al pasar el ratón */
 }
 
 .products .box-container .box .name {
@@ -535,58 +624,81 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 }
 
 .products .box-container .box .flex .price span {
-   color: #777; /* Cambia el color de texto a tu elección */
+   color: #832b2b; /* Cambia el color de texto a tu elección */
    font-size: 1.8rem;
 }
 
 .products .box-container .box .flex .qty {
    padding: 1rem;
-   border: var(--border);
+   border: 5px solid #00ffff;; /* Añade un borde sólido con un color más oscuro */
+   border-radius: 8px; /* Agrega bordes redondeados */
    font-size: 1.8rem;
-   color: var(--black);
+   color: #4a4a4a; /* Cambia el color del texto a uno más oscuro */
+   transition: border-color 0.3s, color 0.3s, transform 0.3s; /* Agrega transiciones suaves */
+   cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+.products .box-container .box .flex .qty:hover {
+   border-color: rgb(31, 250, 45); /* Cambia el color del borde al pasar el ratón a uno más oscuro */
+   color: #2c3a4a; /* Cambia el color del texto al pasar el ratón a uno más oscuro */
+   transform: scale(1.05); /* Aumenta ligeramente al pasar el ratón */
 }
 
 .products .box-container .box .flex .fa-edit {
    width: 5rem;
-   background-color: #ff9900; /* Cambia el color de fondo a tu elección */
-   color: #000; /* Cambia el color de texto a tu elección */
+   height: 4.5rem;
+   background-color: #2ecc71; /* Cambia el color de fondo a tu elección */
+   color: #fff; /* Cambia el color de texto a tu elección */
+   border: 2px solid #27ae60; /* Ajusta el grosor y color del borde */
+   border-radius: 8px; /* Borde redondeado */
    cursor: pointer;
    font-size: 1.8rem;
-   height: 4.5rem;
-   border: var(--border);
-   transition: background-color 0.3s;
+   transition: background-color 0.3s, color 0.3s, transform 0.3s ease-in-out, border-color 0.3s; /* Transiciones suaves */
    text-align: center;
-}
-
-.products .box-container .box .flex .fa-edit:hover {
-   background-color: #ff00ff; /* Cambia el color al pasar el ratón por encima */
-   color: #fff; /* Cambia el color de texto al pasar el ratón por encima */
-}
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .products .box-container .box .flex .fa-edit:hover {
+   background-color: #27ae60; /* Cambia el color de fondo al pasar el ratón */
+   color: #fff; /* Cambia el color de texto al pasar el ratón */
+   border-color: #218c53; /* Cambia el color del borde al pasar el ratón */
+   transform: scale(1.1); /* Aumento de escala al pasar el ratón */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra al pasar el ratón */
+ }
+ 
 
 .products .box-container .box .fa-times {
    position: absolute;
    top: 1rem;
    right: 1rem;
-   background-color: #ff0000; /* Cambia el color de fondo a tu elección */
-   color: #fff; /* Cambia el color de texto a tu elección */
-   border: var(--border);
-   line-height: 4.3rem;
+   background-color: #3498db;
+   color: #fff;
+   border: 2px solid #2980b9;
+   border-radius: 50%; /* Borde redondo */
+   line-height: 4.5rem; /* Ajuste para centrar el ícono verticalmente */
    height: 4.5rem;
    width: 4.5rem;
    cursor: pointer;
    font-size: 2rem;
-   transition: background-color 0.3s;
-}
-
-.products .box-container .box .fa-times:hover {
-   background-color: #000; /* Cambia el color al pasar el ratón por encima */
-   color: #fff; /* Cambia el color al pasar el ratón por encima */
-}
+   transition: background-color 0.3s, color 0.3s, transform 0.3s ease-in-out, border-radius 0.3s; /* Ajustado para incluir transición de borde redondo */
+   transform: scale(1);
+   z-index: 1000;
+ }
+ 
+ .products .box-container .box .fa-times:hover {
+   background-color: #2980b9;
+   color: #fff;
+   transform: scale(1.1);
+   border-radius: 20%; /* Ajusta según tu preferencia para un cambio más suave en el borde redondo */
+ }
+ 
 
 .products .box-container .box .sub-total {
    margin-top: 1rem;
    font-size: 1.8rem;
-   color: #777; /* Cambia el color de texto a tu elección */
+   color: rgb(214, 166, 166)f7f; /* Cambia el color de texto a tu elección */
 }
 
 .products .box-container .box .sub-total span {
@@ -596,7 +708,7 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 .products .more-btn {
    margin-top: 1rem;
    text-align: center;
-   background-color: #ff9900; /* Cambia el color de fondo a tu elección */
+   background-color: #474643; /* Cambia el color de fondo a tu elección */
    padding: 1rem 2rem;
    font-weight: bold;
    color: #fff; /* Cambia el color de texto a tu elección */
@@ -606,29 +718,39 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 }
 
 .products .more-btn:hover {
-   background-color: #ff00ff; /* Cambia el color al pasar el ratón por encima */
+   background-color: #a3bebebb; /* Cambia el color al pasar el ratón por encima */
 }
 
 
 
-.products .cart-total{
+.products .cart-total {
    display: flex;
    align-items: center;
-   gap:1.5rem;
+   gap: 1.5rem;
    flex-wrap: wrap;
    justify-content: space-between;
    margin-top: 3rem;
-   border:var(--border);
-   padding:1rem;
+   border: 8px solid #3498db; /* Borde sólido con color de resaltado */
+   border-radius: 12px; /* Bordes redondeados */
+   padding: 1.5rem; /* Ajuste de relleno */
+   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+   cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+.products .cart-total:hover {
+   border-color: #ff9900; /* Cambio de color del borde al pasar el ratón */
+   transform: scale(1.02); /* Aumento de escala al pasar el ratón */
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+
 }
 
 .products .cart-total p{
    font-size: 2.5rem;
-   color:var(--light-color);
+   color:#f06;
 }
 
 .products .cart-total p span{
-   color:var(--red);
+   color:#e0e0e0;
 }
 
 .products .cart-total .btn{
@@ -660,13 +782,17 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    color:var(--black);
    text-transform: capitalize;
    margin-bottom: 1rem;
+   
+
 }
 
 .about .row .content p {
+   border: 6px solid #00ffff;
+   border-radius: 20px;
    padding: 1rem 0;
    line-height: 2;
    font-size: 1.8rem;
-   color: #444;
+   color: #e0e0e0;
    transition: color 0.4s, transform 0.3s;
 }
 
@@ -686,8 +812,9 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 }
 
 .steps .box-container .box {
+   border-radius: 20px;
    text-align: center;
-   border: none;
+  border: 6px solid #00ffff;
    padding: 2rem;
    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
@@ -890,7 +1017,7 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    border-radius: 20px;
    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
    transition: transform 0.3s, box-shadow 0.3s;
-   border: 2px solid #ccc;
+   border: 5px solid #1f1a1a;
    position: relative;
    overflow: hidden;
 }
@@ -898,7 +1025,7 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 .contact .row form:hover {
    transform: translateY(-10px);
    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-   background: #8aa70bbe;
+   background: #748331be;
 }
 
 .contact .row form h3 {
@@ -918,7 +1045,7 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    margin: 0.7rem 0;
    font-size: 1.8rem;
    color: #555;
-   border: 2px solid #ccc;
+   border: 5px solid #ccc;
    border-radius: 10px;
    padding: 1.4rem;
    width: 100%;
@@ -951,27 +1078,54 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    gap:1.3rem;
 }
 
-.search-form form .box{
+.search-form form .box {
    width: 100%;
-   border:var(--border);
-   padding:1.4rem;
+   padding: 1.4rem;
    font-size: 1.8rem;
-   color:var(--black);
-}
+   color: #2c3e50;
+   border: 6px solid #00ffff;
+   border-radius: 10px;
+   background-color: #ecf0f1;
+   transition: border-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s, background-color 0.3s;
+ 
+   /* Efectos de sombra y escala al pasar el ratón */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .search-form form .box:hover {
+   border-color: #3498db;
+   transform: scale(1.05);
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .search-form form .box:focus {
+   outline: none;
+   border-color: #3498db;
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+   background-color: #fff; /* Cambio de color de fondo al enfocar */
+ }
+    
 
-.search-form form .fa-search{
+ .search-form form .fa-search {
    width: 6rem;
    background-color: var(--black);
-   color:var(--white);
+   color: var(--white);
    cursor: pointer;
    font-size: 2.5rem;
-}
-
-.search-form form .fa-search:hover{
+   border: 6px solid #00ffff;
+   border-radius: 10px;
+   transition: background-color 0.3s, color 0.3s, transform 0.3s ease-in-out, border-color 0.3s; /* Añadida transición suave */
+ 
+   /* Estilo al pasar el ratón */
+ }
+ 
+ .search-form form .fa-search:hover {
    background-color: var(--yellow);
-   color:var(--black);
-}
-
+   color: var(--black);
+   transform: scale(1.1); /* Aumento de escala al pasar el ratón */
+   border-color: var(--yellow); /* Cambio de color del borde al pasar el ratón */
+ }
+ 
 .checkout form {
    max-width: 50rem;
    margin: 0 auto;
@@ -1008,7 +1162,7 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 }
 
 .checkout form .cart-items {
-   background-color: #fff;
+   background: linear-gradient(45deg, #D98880, #8B4513);
    padding: 2rem;
    padding-top: 0;
    border-radius: 10px;
@@ -1035,9 +1189,17 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    gap: 1.5rem;
    justify-content: space-between;
    margin: 1rem 0;
+   padding: 1rem;
+   border: 5px solid #ddd; /* Borde sólido */
+   border-radius: 8px; /* Bordes redondeados */
+   background-color: #b9b7b7; /* Fondo blanco */
    line-height: 1.5;
    font-size: 2rem;
-   transition: color 0.3s;
+   transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.checkout form .cart-items p:hover {
+   background-color: #f8f8f8; /* Cambio de color de fondo al pasar el ratón por encima */
 }
 
 .checkout form .cart-items p .name {
@@ -1082,6 +1244,8 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    padding: 1rem 0;
    color: var(--black);
    transition: color 0.3s;
+   display: flex;
+   align-items: center;
 }
 
 .checkout form .user-info p i {
@@ -1095,6 +1259,11 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    transition: color 0.3s;
 }
 
+.checkout form .user-info p:hover {
+   color: #3498db; /* Cambio de color al pasar el ratón por encima */
+}
+
+
 .checkout form .user-info .box {
    width: 100%;
    border: 2px solid var(--border);
@@ -1103,7 +1272,7 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    margin-top: 2rem;
    margin-bottom: 1rem;
    font-size: 1.8rem;
-   background-color: #fff;
+   background: linear-gradient(45deg, #D98880, #8B4513);
    transform: translateY(0);
    transition: border-color 0.3s, transform 0.3s;
    position: relative;
@@ -1122,46 +1291,53 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    gap: 1.5rem;
    align-items: flex-start;
    justify-content: center;
-}
-
-.orders .box-container .box {
+ }
+ 
+ .orders .box-container .box {
    padding: 2rem;
-   border: none; /* Elimina el borde predeterminado */
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra suave */
-   background: #fff; /* Cambia el color de fondo a tu elección */
-   border-radius: 10px; /* Bordes redondeados */
+   border: 6px solid #3498db; /* Borde sólido añadido */
+   border-radius: 10px;
    overflow: hidden;
-   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; /* Añadida transición al borde */
    text-align: left;
-}
-
-.orders .box-container .box:hover {
-   transform: translateY(-4px); /* Efecto de elevación al pasar el ratón por encima */
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-   background: #f8f8f8; /* Cambia el color de fondo al pasar el ratón por encima */
-}
+ }
+ 
+ 
+ .orders .box-container .box:hover {
+   transform: scale(1.02); /* Aumento de escala al pasar el ratón */
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el ratón */
+   border-color: #2c3a4a; /* Cambio de color del borde al pasar el ratón */
+ }
+ 
 
 .orders .box-container .box p {
    line-height: 1.5;
    margin: 1rem 0;
    font-size: 2rem;
-   color: #777; /* Cambia el color de texto a un tono más suave */
+   color: #eee7e7; /* Cambia el color de texto a un tono más suave */
 }
 
 .orders .box-container .box p span {
-   color: #333; /* Cambia el color del texto a un tono más oscuro */
-   font-weight: bold; /* Texto en negrita */
-}
-
-.form-container form {
-   background: linear-gradient(to right, rgba(0, 0, 0, 0.3), #007BFF);
+   color: rgb(131, 186, 223);
+   font-weight: bold;
+   transition: color 0.3s, transform 0.3s; /* Añadida transición al color del texto y a la transformación */
+   display: inline-block; /* Alinea el elemento como bloque en línea para permitir transformaciones */
+ }
+ 
+ .orders .box-container .box:hover p span {
+   color: #2c3a4a;
+   transform: translateY(-2px); /* Eleva ligeramente al pasar el ratón para un efecto sutil */
+ }
+ 
+ .form-container form {
+   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), #3498db);
    border: 1px solid transparent;
-   border-radius: 10px;
+   border-radius: 12px;
    margin: 0 auto;
    max-width: 500px;
    padding: 30px;
    text-align: center;
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
    animation: fadeIn 1s ease;
    transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -1189,17 +1365,17 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    margin: 10px 0;
    padding: 15px;
    width: 100%;
-   border: 2px solid transparent;
-   border-radius: 5px;
+   border: 6px solid transparent;
+   border-radius: 8px;
    font-size: 1.8rem;
-   color: green;
+   color: #fff;
    background: rgba(255, 255, 255, 0.2);
    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .form-container form .box:focus {
    border-color: #00bfff;
-   box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+   box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
    transform: scale(1.05);
 }
 
@@ -1221,29 +1397,31 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 }
 
 .form-container form:hover {
-   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 
 .user-details .user {
    max-width: 50rem;
    margin: 0 auto;
-   border: 1px solid #ccc;
+   border: 2px solid #3498db; /* Borde sólido con color de resaltado */
    padding: 2rem;
-   background: linear-gradient(to right, rgba(0, 0, 0, 0.3), #007BFF);
-   border-radius: 20px;
+   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), #3498db); /* Gradiente más oscuro */
+   border-radius: 15px;
    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
    text-align: center;
    transform: scale(1);
-   transition: transform 0.5s, box-shadow 0.5s, background 0.5s, color 0.5s;
+   transition: transform 0.5s, box-shadow 0.5s, background 0.5s, color 0.5s, border-color 0.5s;
 }
 
 .user-details .user:hover {
    transform: translateY(-10px);
-   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
    background: linear-gradient(45deg, #606669, #28149b);
    color: #fff;
+   border-color: #2c3a4a; /* Cambio de color del borde al pasar el ratón */
 }
+
 
 .user-details .user img {
    max-width: 100%;
@@ -1304,30 +1482,55 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
 }
 
 
-.quick-view form{
+.quick-view form {
    max-width: 40rem;
-   padding:2rem;
-   border:var(--border);
+   margin: 0 auto;
+   padding: 2rem;
+   border: 6px solid #00ffff;; /* Color del borde */
+   border-radius: 8px;
    position: relative;
-   margin:0 auto;
-}
-
-.quick-view form img{
+       background: linear-gradient(45deg, #586776, #9c9fa4);
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   transition: box-shadow 0.3s, transform 0.3s; /* Agregado efecto de transición */
+ 
+   /* Añadido estilo para los campos del formulario */
+ }
+ 
+ .quick-view form:hover {
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Cambia la sombra al pasar el ratón */
+   transform: scale(1.02); /* Aumento sutil de escala al pasar el ratón */
+ }
+ 
+ .quick-view form img {
    height: 25rem;
    width: 100%;
-   object-fit: contain;
+   object-fit: cover; /* Se cambió a 'cover' para llenar el contenedor manteniendo la proporción */
+   border-radius: 8px; /* Se añadió un borde redondeado */
    margin-bottom: 1rem;
-}
-
-.quick-view form .cat{
+   transition: transform 0.3s ease-in-out; /* Agregada una transición para una animación suave */
+ }
+ 
+ .quick-view form img:hover {
+   transform: scale(1.1); 
+ }
+ 
+ .quick-view form .cat {
    font-size: 1.8rem;
-   color:var(--light-color);
-}
-
-.quick-view form .cat:hover{
-   color:var(--black);
-   text-decoration: underline;
-}
+   color: #3498db;
+   margin-bottom: 1rem;
+   border-radius: 4px; /* Borde redondeado */
+   padding: 0.5rem 1rem; /* Añadido espacio interno */
+   transition: background-color 0.3s, color 0.3s, transform 0.3s ease-in-out; /* Agregada transición suave */
+ 
+   /* Añadido estilo al pasar el ratón */
+ }
+ 
+ .quick-view form .cat:hover {
+   background-color: #3498db; /* Cambia el color de fondo al pasar el ratón */
+   color: #fff; /* Cambia el color de texto al pasar el ratón */
+   transform: scale(1.05); /* Aumento de escala al pasar el ratón */
+ }
+ 
 
 .quick-view form .name{
    font-size: 2rem;
@@ -1342,41 +1545,69 @@ transition: background 0.3s, border-bottom 0.3s, transform 0.3s, box-shadow 0.3s
    margin:1rem 0;
 }
 
-.quick-view form .flex .price{
+.quick-view form .flex .price {
    font-size: 2.5rem;
-   color:var(--black);
-}
-
-.quick-view form .flex .price span{
+   color: #000;
+   margin-bottom: 1rem;
+   border: 5px solid #00ffff;; /* Añadido borde con color azul (puedes personalizar según tus preferencias) */
+   border-radius: 4px; /* Borde redondeado */
+   padding: 0.5rem; /* Añadido espacio interno */
+   transition: color 0.3s, border-color 0.3s, transform 0.3s ease-in-out; /* Transición suave */
+   display: inline-block; /* Añadido para que la transición funcione correctamente */
+ 
+   /* Estilo al pasar el ratón */
+ }
+ 
+ .quick-view form .flex .price:hover {
+   color: #3498db; /* Cambia el color al pasar el ratón */
+   border-color: #2980b9; /* Cambia el color del borde al pasar el ratón */
+   transform: scale(1.05); /* Aumento de escala al pasar el ratón */
+ }
+ 
+ .quick-view form .flex .price span {
    font-size: 2rem;
-   color:var(--light-color);
-}
-
-.quick-view form .flex .qty{
-   border:var(--border);
-   padding:1rem;
+   color: rgb(4, 3, 12);
+ }
+ 
+.quick-view form .flex .qty {
+   border: 2px solid #ccc; /* Cambia el color del borde a tu elección */
+   border-radius: 4px;
+   padding: 1rem;
    font-size: 1.8rem;
-   color:var(--black);
-}
-
-.quick-view form .cart-btn{
+   color: #000;
+   margin-bottom: 1rem;
+   transition: border-color 0.3s, transform 0.3s ease-in-out;
+ 
+   /* Estilo al pasar el ratón */
+ }
+ 
+ .quick-view form .flex .qty:hover {
+   border-color: #3498db;
+   transform: scale(1.05);
+ }
+ .quick-view form .cart-btn {
    width: 100%;
-   padding:1rem 3rem;
+   padding: 1rem 3rem;
    text-align: center;
-   border:var(--border);
+   border: 2px solid var(--border);
+   border-radius: 8px; /* Borde redondeado */
    font-size: 2rem;
-   color:var(--black);
+   color: #000;
    cursor: pointer;
    text-transform: capitalize;
-   background: none;
+   background: linear-gradient(45deg, #3498db, #1f618d); /* Mix de colores en un degradado */
    margin-top: 1rem;
-}
-
-.quick-view form .cart-btn:hover{
-   background-color: var(--black);
-   color:var(--white);
-}
-
+   transition: background 0.3s, color 0.3s, transform 0.3s ease-in-out; /* Agregada transición suave */
+ 
+   /* Estilo al pasar el ratón */
+ }
+ 
+ .quick-view form .cart-btn:hover {
+   background: linear-gradient(45deg, #1f618d, #3498db); /* Cambia el mix de colores al pasar el ratón */
+   color: #fff;
+   transform: scale(1.05);
+ }
+ 
 
 
 

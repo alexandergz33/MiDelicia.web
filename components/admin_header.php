@@ -25,6 +25,7 @@ if(isset($message)){
    <a href="users_accounts.php"><i class="fas fa-users"></i> Usuarios</a>
    <a href="messages.php"><i class="fas fa-envelope"></i> Mensajes</a>
    <a href="admin_reservas.php"><i class="fas fa-envelope"></i> Reservas</a>
+   <a href="admin_promocion.php"><i class="fas fa-gift"></i> Promocion</a>
 </nav>
 
 
@@ -42,12 +43,11 @@ if(isset($message)){
          <p><?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">Actualización del perfil</a>
          <div class="flex-btn">
-            <a href="admin_login.php" class="option-btn">Login</a>
-            <a href="register_admin.php" class="option-btn">Registro</a>
-         </div>
-         <a href="../components/admin_logout.php" onclick="return confirm('¿Cerrar sesión en este sitio web?');" class="delete-btn">Cerrar Sesión</a>
-      </div>
-
+            <a href="admin_login.php" class="option-boton">Login</a>
+            <a href="register_admin.php" class="option-boton">Registro</a>
+            <div class="custom-container">
+  <a href="../components/admin_logout.php" onclick="return confirm('¿Cerrar sesión en este sitio web?');" class="logout-boton">Cerrar Sesión</a>
+</div>
    </section>
 
 </header>

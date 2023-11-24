@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+body {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background: linear-gradient(45deg, #FF6347, #1E90FF);
+}
+
+section .comentarios {
+  position: relative;
+  height: 500px;
+  width: 1075px;
+  display: flex;
+  align-items: center;
+}
+
+.swiper {
+  width: 950px;
+}
+
+.container {
+  border-radius: 20px;
+}
+
+.card .image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+
+.card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #00ffff;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(45deg, #FF6347, #1E90FF);
+  border: 6px solid rgb(64, 207, 218);
+  border-radius: 20px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #586776, #9c9fa4);
+  clip-path: circle(55% at 0 0);
+  border-top-left-radius: 10px;
+}
+
+.card .card-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.card .social-media {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .social-media i {
+  color: #fff;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.card .social-media i:hover {
+  color: #0ef;
+}
+
+.card .name-profession {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.name-profession .name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.name-profession .profession {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.card .rating {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.card .rating i {
+  font-size: 18px;
+   color: rgb(200, 255, 0);
+  margin: 0 2px;
+}
+
+.card .button {
+  display: flex;
+  justify-content: space-around;
+  width: 110%;
+  margin-top: 20px;
+}
+
+.card .button button {
+  background: linear-gradient(45deg, #586776, #9c9fa4);
+  border: 5px solid #00ffff;
+  border-radius: 8px;
+  outline: none;
+  color: #000;
+  font-weight: 600;
+  padding: 8px 22px;
+   border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.card .button button:hover {
+  background: #fff;
+}
+
+.swiper-pagination-bullet {
+  height: 7px;
+  width: 26px;
+  background: #0ef;
+  border-radius: 25px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #0ef;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 4rem;
+  color: #2c3e50;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden; /* Añadido para ocultar el subrayado por defecto */
+}
+
+.title::before,
+.title::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0;
+  bottom: 0;
+  transition: width 0.3s ease-in-out;
+  border-bottom: 8px solid rgb(52, 219, 122); /* Color del subrayado */
+}
+
+.title::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title::after {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.title:hover::before,
+.title:hover::after {
+  width: 30%; /* Ancho del subrayado al pasar el ratón */
+}
+
+
+.regresar {
+  text-align: center; 
+  margin: 40px; /* Ajusta el margen según tus preferencias */
+}
+
+.regresar-btn {
+  background: linear-gradient(45deg, #586776, #9c9fa4);
+  border: 5px solid #00ffff;
+  border-radius: 8px;
+  color: white; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  font-size: 16px; /* Tamaño de fuente del texto del botón */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+  display: inline-block;
+}
+
+/* Agrega estilos adicionales según tus preferencias */

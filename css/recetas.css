@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+    font-family: 'Poppins', sans-serif; 
+}
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #b9b9a7;
+    flex-direction: column; /* Cambiado para que los elementos se apilen verticalmente */
+}
+
+.card {
+    display: flex;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+
+.card .card_landing {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 10px #000;
+    background: linear-gradient(transparent 80%, #000), url('../images/ceviche.jpg'); /* Ajusta la ruta de la imagen aquí */
+    background-position: center;
+    background-size: cover;
+    z-index: 100;
+}
+
+.card .card_yassa {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 10px #000;
+    background: linear-gradient(transparent 80%, #000), url('../uploaded_img/yassa.jpg'); /* Ajusta la ruta de la imagen aquí */
+    background-position: center;
+    background-size: cover;
+    z-index: 100;
+}
+.card .card_sushi {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 10px #000;
+    background: linear-gradient(transparent 80%, #000), url('../uploaded_img/sushi.jpg'); /* Ajusta la ruta de la imagen aquí */
+    background-position: center;
+    background-size: cover;
+    z-index: 100;
+}
+.card .card_landing h6 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.card .card_info {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    padding: 15px;
+    background: #fff;
+    z-index: 90;
+    box-shadow: 0 5px 10px #000;
+    transition: .5s;
+}
+
+.card:hover .card_info {
+    left: 100%;
+}
+
+.card_info .head {
+    padding: 5px 0;
+    border-bottom: solid 1px #bc8811;
+}
+
+.card_info .head .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #80bc11;
+}
+
+.card_info .head .description {
+    display: flex;
+    gap: 10px;
+}
+
+.card_info .head .description .item {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.card_info .head .description .item i {
+    color: rgb(48, 138, 199);
+    font-size: 15px;
+}
+
+.card_info .head .description .item p {
+    font-size: 13px;
+}
+
+.card_info .content {
+    margin-top: 15px;
+}
+
+.card_info .content .list {
+    padding: 10px 15px;
+}
+
+.card_info .content .list li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card_info .action .btn {
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    background: #6b6861;
+    display: block;
+    margin-top: 10px;
+}
+.receta-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background: linear-gradient(45deg, #666564, #8eb2d6);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    color: #fff; 
+    z-index: 1000;
+    max-width: 500px; 
+    text-align: justify; 
+}
+
+.receta-container.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.receta-container h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.receta-container p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.receta-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.receta-container li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.receta-container #cerrarBtn {
+    display: block;
+    margin-top: 20px;
+    padding: 12px;
+    color: #fff;
+    text-decoration: none;
+    background: #5e4b6b;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.receta-container #cerrarBtn:hover {
+    background: #8c78a0;
+}
+.regresar {
+    text-align: center;
+    margin: 20px;
+}
+
+.regresar-btn {
+    background: linear-gradient(45deg, #00b4db, #0083b0); /* Cambié los colores para resaltar más */
+    border: 5px solid #0083b0; /* Hice el borde del mismo color para mayor coherencia */
+    border-radius: 8px;
+    color: white;
+    padding: 15px 30px; /* Aumenté el espaciado interno para hacer el botón más grande y visible */
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background 0.3s ease; /* Agregué una transición suave para cambiar el color de fondo */
+}
+
+.regresar-btn:hover {
+    background: linear-gradient(45deg, #0083b0, #00b4db); /* Cambio de color al pasar el ratón para una interactividad visual */
+}

@@ -41,15 +41,18 @@ if (isset($_GET['id'])) {
 
 <style>
   .editar-reserva {
+    border: 6px solid #11a3a3;
+    border-radius: 8px;
     max-width: 600px;
     margin: 0 auto;
     padding: 40px;
-    background-color: #f0f0f0;
+    background: linear-gradient(45deg, #3498db, #2c3e50);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
 .heading {
+    
     font-size: 32px;
     text-align: center;
     margin-bottom: 20px;
@@ -60,11 +63,13 @@ if (isset($_GET['id'])) {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
 }
 
 label {
+    
     font-weight: bold;
-    color: #444; /* Texto más oscuro */
+    color: white; /* Texto más oscuro */
     font-size: 22px; /* Tamaño de fuente más grande */
 }
 
@@ -75,7 +80,7 @@ input[type="number"],
 textarea {
     width: 100%;
     padding: 15px;
-    border: 2px solid #0056b3; /* Bordes de color azul */
+    border: 5px solid #0056b3; /* Bordes de color azul */
     border-radius: 10px;
     font-size: 20px;
     background-color: #f9f9f9; /* Fondo más claro */
@@ -95,9 +100,10 @@ textarea:focus {
 input[type="submit"] {
     background-color: #333;
     color: #fff;
-    border: none;
+    border: 6px solid #00ffff;
+    border-radius: 10px; 
     padding: 15px 30px;
-    border-radius: 10px;
+     
     cursor: pointer;
     font-size: 24px;
     transition: background-color 0.3s, transform 0.3s;
